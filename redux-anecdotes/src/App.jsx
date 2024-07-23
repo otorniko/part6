@@ -1,9 +1,11 @@
 import AnecdoteForm from "./components/AnecdoteForm"
 import AnecdoteList from "./components/AnecdoteList"
-// 6.3-6.7  done
+import Notification from "./components/Notification"
+// 6a  done
 const App = () => {
     return (
         <div>
+            <Notification/>
             <h2>Anecdotes</h2>
             <AnecdoteList />
             <AnecdoteForm />

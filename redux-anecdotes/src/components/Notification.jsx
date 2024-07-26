@@ -1,30 +1,24 @@
 import { useSelector } from "react-redux"
 
 const Notification = () => {
-  const style = {
-    border: "solid",
-    padding: 10,
-    borderWidth: 1
-  }
-  const styleWithoutNotification = {
-      padding: 10,
-      borderWidth: 1,
-  }
-  const notificationState = useSelector(state => state.notification)
-  const notification = notificationState.length > 0 ? notificationState : '' 
-  if (notificationState.length > 0) {
+    const notificationState = useSelector(state => state.notification)
+    const notification = notificationState.length > 0 ? notificationState : ""
+
+    const containerStyle = {
+        minHeight: "42px",
+        visibility: notificationState.length > 0 ? "visible" : "hidden",
+    }
+
+    const notificationStyle = {
+        border: "1px solid",
+        padding: 10,
+    }
+
     return (
-      <div style={style}>
-        {notification}
-      </div>
+        <div style={containerStyle}>
+            {notificationState.length > 0 && <div style={notificationStyle}>{notification}</div>}
+        </div>
     )
-  } else {
-  return (
-    <div style={styleWithoutNotification}>
-      {notification}
-    </div>
-  )
-}
 }
 
 export default Notification
